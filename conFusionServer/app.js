@@ -6,8 +6,19 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var leaderRouter = require('./routes/leaderRoutes');
+var dishRouter = require('./routes/dishRoutes');
+var promoRouter = require('./routes/promotionsRoutes');
+
 
 var app = express();
+
+// API endpoint mounting
+app.use('/dishes',dishRouter);
+app.use('/leaders',leaderRouter);
+app.use('/promotions',promoRouter);
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
